@@ -44,13 +44,30 @@
 <label for="valeurv">Quelle est la valeur d'achat de votre véhicule?</label><br>
 <input type="text" id="valeurv" name="valeurv"><br>
   
-   
-    
+<p id="erreurmsgannee"></p>  
+<br>
     <label for="anneev">Quelle est l'année de fabrication de votre véhicule?</label><br>
     <input type="text" id="anneev" name="anneev"><br>
     
-    <label for="reclammationon">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années?</label><br>
-    <input type="text" id="reclammationon" name="reclammationon"><br>
+
+
+    <p id="erreurmsgreclamation"></p>
+<label for="reclamation">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années?</label>
+<input type="radio" id="oui" name="reclamation" value="oui">
+<label for="oui">Oui</label>
+<input type="radio" id="non" name="reclamation" value="non">
+<label for="non">Non</label><br>
+<br>
+
+<div id="details-reclamation" style="display: none;">
+    <label for="nombreReclamations">Combien de réclamations avez-vous faites?</label><br>
+    <input type="number" id="nombreReclamations" name="nombreReclamations" min="1"><br>
+    
+    <div id="details-des-reclamations">
+        <!-- Ici, nous ajouterons des détails sur chaque réclamation en utilisant JavaScript -->
+    </div>
+</div>
+
     
     <div id="nbreclams" style="display: none;">
       <label for="nbreclam">Combien de réclamations avez-vous faites?</label><br>
