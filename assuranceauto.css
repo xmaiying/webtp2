@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #eebec4;
+   
+}
+
+h1 {
+    margin-bottom: 33px;
+    background-color: #ffffff;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.forme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .forme input {
+    width: 400px;
+    height: 40px;
+    border-radius: 4px;
+  }
+
+  select {
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+/**couleur du formulaire blanc **/
+#formeassurance {
+    margin-top: 100px;
+    /* A MODIFIER PLUS TARD */
+   height: 900px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 50px;
+  
+}
+
+#formeassurance label {
+    background-color: white;
+    padding:10px;
+}
+
+#formeassurance select,input{
+    display: block;
+    margin-bottom: 33px;
+    margin-top: 10px;
+    background-color: #eebec4;
+    border-color: #000000;
+}
+
+
+.ageetgenre {
+    background-color: white;
+    display: flex;
+    padding-bottom: 10px;
+}
+.ageetgenre select {
+    width: 170px;
+}
+.genreslm {
+    background-color: white;
+    display: flex;
+   
+}
+.genreslm label {
+    width: 110px;
+}
+.ageslm {
+    padding-left: 33px;
+    background-color: white;
+    display: flex;
+}
+.ageslm label {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+
+
+footer p{
+   /** background-color: #5e0202; **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    /* A MODIFIER PLUS TARD */
+    margin: 70px;
+  }
+
+
+
+
+
+
+
+
+
+
+

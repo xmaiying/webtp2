@@ -1,52 +1,65 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="fr">
   <head>
     <meta charset="UTF-8">
-    <title>Assurance automobile</title>
-    <link rel="stylesheet" type="text/css" href="assuranceauto.css">
+    
+    <link rel="stylesheet" type="text/css" href="assuranceauto.css"> 
+    <script src="assuranceauto.js"></script>
+
   </head>
   
-  <body >
+
+<body>
+
+  <div class="forme">
   
-    <h1>Assurance automobile</h1>
-      <form class="formulaire">
-          
+  <form id="formeassurance">
+    <h1>Soumissions d'assurance auto</h1>
+    <p id="message"></p>  
+    <br>
+    <div class="ageetgenre">
+
+    <div class="genreslm">
+      <label for="genre">Quel est votre genre ?</label>
+    <select id="genre" name="genre">
+      <option value="homme">Homme</option>
+      <option value="femme">Femme</option>
+      <option value="non-binaire">Non-binaire</option>
+    </select>
+    </div>
+
+  <div class="ageslm">
+      <label for="age">Age:</label>
+      <select id="age" name="age">
+      </select>
+     
+  </div>
+ 
+</div>
 
 
-
-
-
-<label for="genre">Quel est votre genre??</label>
-<input type="text" id="genre" name="genre">
-<br>
-
-<label for="nom">Quelle est la valeur d'achat de votre véhicule?</label>
-<input type="text" id="nom" name="nom">
-<br>
-
-<label for="nom">Quelle est l'année de fabrication de votre véhicule?</label>
-<input type="text" id="nom" name="nom">
-<br>
-
-<label for="nom">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années? (oui/non)</label>
-<input type="text" id="nom" name="nom">
-
-<label for="nom">Combien de réclamations avez-vous faites?</label>
-<input type="text" id="nom" name="nom">
-<br>
-
-<label for="nom">Pour la réclamation #x, quel montant avez-vous réclamé?/label>
-<input type="text" id="nom" name="nom">
-<br>
-          
-            <div class="soumettre">
-              <input type="submit" value="ENTRER">
-            </div>
-          </div>
-      </form>
+    
+    <label for="valeurv">Quelle est la valeur d'achat de votre véhicule?</label><br>
+    <input type="text" id="valeurv" name="valeurv"><br>
+    
+    <label for="anneev">Quelle est l'année de fabrication de votre véhicule?</label><br>
+    <input type="text" id="anneev" name="anneev"><br>
+    
+    <label for="reclammationon">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années?</label><br>
+    <input type="text" id="reclammationon" name="reclammationon"><br>
+    
+    <div id="nbreclams" style="display: none;">
+      <label for="nbreclam">Combien de réclamations avez-vous faites?</label><br>
+      <input type="text" id="nbreclam" name="nbreclam"><br>
+      
+      <div id="reclamDetails"></div>
     </div>
     
-  
+    <input type="submit" value="Soumettre">
+  </form>
+
+</div>
+
     <footer>
       <p>&copy;2023 MY-ANH CHAU & JINAN HATIM, Tous droits réservés.</p>
     </footer>
