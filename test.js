@@ -178,18 +178,24 @@ function checkCarValue() {
     errorElement.style.color = "red";
     errorElement.style.backgroundColor = "white";
 
-    // le vide ne marche pas
-    if (carValue === "" || carValue == null || isNaN(carValue) ) {
-        errorElement.innerHTML = "S'il vous plaît, entrez une valeur pour la voiture";
+    if (carValue === "" || carValue == null) {
+        errorElement.innerHTML = "S'il vous plaît, entrez une valeur pour la voiture. Le champ ne peut pas être vide.";
         document.getElementById('btnsoum').disabled = true;  
-    } else if ( carValue > 100000 || carValue < 0) {
-        errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (VALEUR DE LACHAT INVALIDE)";
+    } else if (isNaN(carValue)) {
+        errorElement.innerHTML = "La valeur entrée pour la voiture n'est pas un nombre. Veuillez entrer une valeur numérique.";
+        document.getElementById('btnsoum').disabled = true;
+    } else if (carValue > 100000) {
+        errorElement.innerHTML = "La valeur de la voiture ne peut pas dépasser 100 000. Veuillez entrer une valeur inférieure.";
+        document.getElementById('btnsoum').disabled = true;  
+    } else if (carValue < 0) {
+        errorElement.innerHTML = "La valeur de la voiture ne peut pas être négative. Veuillez entrer une valeur supérieure à 0.";
         document.getElementById('btnsoum').disabled = true;  
     } else {
         errorElement.innerHTML = "";
         document.getElementById('btnsoum').disabled = false;  
     }
 }
+
 
 function checkCarAnnee() {
     var anneeCar = document.getElementById('anneev').value;
