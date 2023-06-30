@@ -46,11 +46,15 @@ window.onload = function() {
 function handleReclamationChange() {
     var ouiChecked = document.getElementById('oui').checked;
     var detailsReclamationDiv = document.getElementById('details-reclamation');
+    var errorElement = document.getElementById('erreurmsgreclamation');
     
     if (ouiChecked) {
         detailsReclamationDiv.style.display = "block";
     } else {
+        
         detailsReclamationDiv.style.display = "none";
+        errorElement.innerHTML = "";
+
     }
 }
 
@@ -90,10 +94,6 @@ function handleNombreReclamationsChange() {
             
          
         }
-          
-
-
-
 
     for (var i = 1; i <= nombreReclamations; i++) {
         
@@ -114,6 +114,7 @@ function handleNombreReclamationsChange() {
         detailsDesReclamationsDiv.appendChild(label);
         detailsDesReclamationsDiv.appendChild(input);
         detailsDesReclamationsDiv.appendChild(document.createElement('br'));
+
       
     }
 }
