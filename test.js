@@ -34,8 +34,13 @@ window.onload = function() {
     document.getElementById('oui').addEventListener('change', handleReclamationChange);
     document.getElementById('non').addEventListener('change', handleReclamationChange);
     document.getElementById('nombreReclamations').addEventListener('input', handleNombreReclamationsChange);
-   
-}   
+}
+
+
+
+
+
+
 
 function handleReclamationChange() {
     var ouiChecked = document.getElementById('oui').checked;
@@ -48,6 +53,13 @@ function handleReclamationChange() {
     }
 }
 
+
+
+
+
+
+
+
 function handleNombreReclamationsChange() {
     var nombreReclamations = document.getElementById('nombreReclamations').value;
     var detailsDesReclamationsDiv = document.getElementById('details-des-reclamations');
@@ -56,22 +68,20 @@ function handleNombreReclamationsChange() {
     errorElement.style.color = "red";
     errorElement.style.backgroundColor = "white";
 
-
-   
+    if (nombreReclamations > 4) {
+        errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 4 RÉCLAMATIONS)";
+        
+    } if (nombreReclamations <= 4){
+        errorElement.innerHTML = "";
+    
     
     while (detailsDesReclamationsDiv.firstChild) {
         detailsDesReclamationsDiv.removeChild(detailsDesReclamationsDiv.firstChild);
     }
-    if (nombreReclamations > 4) {
-        errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 4 RÉCLAMATIONS)";
-       
-    } 
-    if(nombreReclamations<=4){
-    errorElement.innerHTML = "";
+
     for (var i = 1; i <= nombreReclamations; i++) {
         var label = document.createElement('label');
         label.textContent = 'Pour la réclamation #' + i + ', quel montant avez-vous réclamé?';
-       
         
         var input = document.createElement('input');
         input.type = 'number';
@@ -85,15 +95,15 @@ function handleNombreReclamationsChange() {
         detailsDesReclamationsDiv.appendChild(input);
         detailsDesReclamationsDiv.appendChild(document.createElement('br'));
     }
-} 
 }
-
+}
 // Cette fonction est appelée lorsque le montant d'une réclamation est modifié
-function handleMontantChange() {
-    var montant = input.value;
-    var errorElement = document.getElementById('erreurmsgreclamation');
+function handleMontantChange(event) {
+    var montant = event.target.value;
+    var errorElement = document.getElementById('erreurmsgreclamations');
 
     errorElement.style.color = "red";
+    errorElement.style.backgroundColor = "white";
 
     if (montant > 35000) {
         errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 35 000$ DE RÉCLAMATION)";
