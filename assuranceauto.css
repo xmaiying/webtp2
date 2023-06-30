@@ -40,7 +40,7 @@ h1 {
 #formeassurance {
     margin-top: 100px;
     /* A MODIFIER PLUS TARD */
-    height: 900px;
+    height: 850px;
     background-color: white;
     border-radius: 4px;
     padding: 50px;
@@ -88,7 +88,23 @@ h1 {
     margin-left: 10px;
 }
 
+#radiobtnon {
+    background-color: white;
+}
+#radiobtnon input{
+    display: inline;
+}
 
+.radiobtnon .oui {
+    margin: 10px;
+}
+
+#details-reclamation{
+    background-color: white;
+}
+#details-des-reclamations{
+    background-color: white;
+}
 
 
 footer p{
