@@ -118,6 +118,7 @@ body p {
 
 footer p{
     background-color: #eebec4; 
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;

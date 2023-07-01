@@ -56,6 +56,7 @@ function handleReclamationChange() {
 
         detailsReclamationDiv.style.display = "none";
         errorElement.innerHTML = "";
+        
 
     }
 }
@@ -71,6 +72,7 @@ function handleNombreReclamationsChange() {
     if (nombreReclamations > 4) {
         errorElement.style.marginBottom = '20px';
         errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 4 RÉCLAMATIONS)";
+        return false;
 
     } if (nombreReclamations <= 4) {
         errorElement.innerHTML = "";
@@ -129,8 +131,10 @@ function handleMontantChange(event) {
     
     if (montant > 35000) {
         errorElement.innerHTML = " La réclammation est plus de 35 000$ ce qui n'est pas accepté)";
+        
     } else {
         errorElement.innerHTML = "";
+    
     }
 }
 
@@ -200,40 +204,60 @@ function checkCarAnnee() {
         errorElement.innerHTML = "Désolé, vous ne pouvez pas entrer une année future.";
     } else {
         errorElement.innerHTML = "";
+        return true;
     }
 }
+
+
+
+
+
 function calculerMontant(event) {
     event.preventDefault();
+
+    var lannee = document.getElementById('anneev').value;
+
+    // Validation check for car year
+    if (lannee < 1998) {
+        document.getElementById('affichermontant').innerHTML = "Désolé, nous n'avons aucun produit ";
+        return;
+    }
+
     var assuranceAnnuelle;
     var montantTemporaire;
     var lage = document.getElementById('age').value;
     var legenre = document.getElementById('genre').value;
     var lavaleurcar = document.getElementById('valeurv').value;
     var afficherMontant = document.getElementById('affichermontant');
-    var montant = event.target.value;
     var nbrReclamations = document.getElementById('nombreReclamations').value;
-    if ((legenre === "homme" || legenre === "non-binaire") && (lage < 25)) {
-        var montantBase = 0.05 * lavaleurcar;
+    var montantBase;
 
-    }
-    if (lage >= 75) {
+    if ((legenre === "homme" || legenre === "non-binaire") && (lage < 25)) {
+        montantBase = 0.05 * lavaleurcar;
+    } else if (lage >= 75) {
         montantBase = 0.04 * lavaleurcar;
-    }
-    else {
+    } else {
         montantBase = 0.02 * lavaleurcar;
     }
-    montantTemporaire = nbrReclamations * 350;
-    assuranceAnnuelle = montantBase + montantTemporaire;
-    if (montant > 25000) {
-        assuranceAnnuelle = assuranceAnnuelle + 500;
+
+    if (montantBase) {
+        montantTemporaire = nbrReclamations * 350;
+        assuranceAnnuelle = montantBase + montantTemporaire;
+
+        if (lavaleurcar > 25000) {
+            assuranceAnnuelle = assuranceAnnuelle + 500;
+        }
+
+        var montantMensuel = assuranceAnnuelle / 12;
+        afficherMontant.innerHTML = "Le montant annuel est " + assuranceAnnuelle.toFixed(2) + " et le montant mensuel est " + montantMensuel.toFixed(2);
+    } else {
+        afficherMontant.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client.";
     }
-
-    var montantMensuel = assuranceAnnuelle / 12;
-    afficherMontant.style.color = "red";
-    afficherMontant.style.backgroundColor = "white";
-    afficherMontant.innerHTML = "Le montant annuel est " + assuranceAnnuelle.toFixed(2) + " et le montant mensuel est " + montantMensuel.toFixed(3);
-
 }
+
+
+
+
 
 
 
