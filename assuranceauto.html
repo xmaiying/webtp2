@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="assuranceauto.css"> 
+    <script src="test.js"></script>
+
+  </head>
+  
+
+<body>
+
+  <div class="forme">
+  
+  <form id="formeassurance">
+    <h1>Soumissions d'assurance auto</h1>
+    <p id="erreurmsgagegenre"></p>  
+    <br>
+    <div class="ageetgenre">
+
+    <div class="genreslm">
+      <label for="genre">Quel est votre genre ?</label>
+    <select id="genre" name="genre">
+      <option value="homme">Homme</option>
+      <option value="femme">Femme</option>
+      <option value="non-binaire">Non-binaire</option>
+    </select>
+    </div>
+
+  <div class="ageslm">
+      <label for="age">Age:</label>
+      <select id="age" name="age">
+      </select>
+     
+  </div>
+ 
+</div>
+
+
+<p id="erreurmsgvaleur"></p>  
+<br>
+
+<label for="valeurv">Quelle est la valeur d'achat de votre véhicule?</label><br>
+<input type="text" id="valeurv" name="valeurv"><br>
+  
+<p id="erreurmsgannee"></p>  
+<br>
+    <label for="anneev">Quelle est l'année de fabrication de votre véhicule?</label><br>
+    <input type="text" id="anneev" name="anneev"><br>
+    
+    
+
+<div>
+<label for="reclamation">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années?</label>
+<br>
+<br>
+<label for="oui">Oui</label>
+<input type="radio" id="oui" name="reclamation" value="oui">
+<input type="radio" id="non" name="reclamation" value="non">
+<label for="non">Non</label><br>
+<br>
+</div>
+
+
+<p id="erreurmsgreclamation"></p>
+<div id="details-reclamation" style="display: none;">
+    <label for="nombreReclamations">Combien de réclamations avez-vous faites?</label><br>
+    <input type="number" id="nombreReclamations" name="nombreReclamations" min="1"><br>
+   
+    <div id="details-des-reclamations">
+      
+        <!-- Ici, nous ajouterons des détails sur chaque réclamation en utilisant JavaScript -->
+    </div>
+</div>
+
+    
+    <div id="nbreclams" style="display: none;">
+      <label for="nbreclam">Combien de réclamations avez-vous faites?</label><br>
+      <input type="text" id="nbreclam" name="nbreclam"><br>
+      
+      <div id="reclamDetails"></div>
+    </div>
+    
+    <input type="submit" value="Soumettre">
+  </form>
+
+</div>
+
+    <footer>
+      <p>&copy;2023 MY-ANH CHAU & JINANE HATIM, Tous droits réservés.</p>
+    </footer>
+  </body>
+  </html>
