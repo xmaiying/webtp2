@@ -40,13 +40,16 @@ h1 {
 #formeassurance {
     margin-top: 100px;
     /* A MODIFIER PLUS TARD */
-    height: 850px;
+    min-height: 850px; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     background-color: white;
     border-radius: 4px;
     padding: 50px;
-
-  
 }
+
 
 #formeassurance label {
     background-color: white;
