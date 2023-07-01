@@ -35,12 +35,11 @@ window.onload = function() {
     document.getElementById('oui').addEventListener('change', handleReclamationChange);
     document.getElementById('non').addEventListener('change', handleReclamationChange);
     document.getElementById('nombreReclamations').addEventListener('input', handleNombreReclamationsChange);
-    document.getElementById('btnsoum').onmousedown = calculerMontant;
+    document.getElementById('btnsoum').addEventListener('click', calculerMontant);
+
+  
 
 }
-
-
-
 
 
 
@@ -226,6 +225,7 @@ function checkCarAnnee() {
     }
 }
 function calculerMontant(event) {
+    event.preventDefault();
     var assuranceAnnuelle;
     var montantTemporaire;
     var lage = document.getElementById('age').value;
