@@ -109,9 +109,15 @@ h1 {
     background-color: white;
 }
 
+body p {
+    color: red;
+    background-color: white;
+}
+
+
 
 footer p{
-   /** background-color: #5e0202; **/
+    background-color: #eebec4; 
     display: flex;
     justify-content: center;
     align-items: center;

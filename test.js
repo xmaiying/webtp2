@@ -66,19 +66,14 @@ function handleNombreReclamationsChange() {
     var detailsDesReclamationsDiv = document.getElementById('details-des-reclamations');
     var errorElement = document.getElementById('erreurmsgreclamation');
 
-    errorElement.style.color = "red";
-    errorElement.style.backgroundColor = "white";
-
     // MODIFICAITON DE LA TAILLE DU FORMULAIRE
 
     if (nombreReclamations > 4) {
         errorElement.style.marginBottom = '20px';
         errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 4 RÉCLAMATIONS)";
-        document.getElementById('btnsoum').disabled = true;
 
     } if (nombreReclamations <= 4) {
         errorElement.innerHTML = "";
-        document.getElementById('btnsoum').disabled = false;
 
         var nbrenleve = 0;
         while (detailsDesReclamationsDiv.firstChild) {
@@ -102,14 +97,18 @@ function handleNombreReclamationsChange() {
             input.max = '35000'; // On définit une limite de 35 000$ pour le montant de la réclamation
 
 
-            input.addEventListener('change', handleMontantChange);
+            input.onchange = handleMontantChange; 
+
+            var p = document.createElement('p');
+            p.className = 'erreurmsgmontant'; // setting the class
+            p.id = 'erreurmsgmontant' + i; // setting an unique id for each paragraph
+        
 
             var errorElement = document.createElement('div');
             errorElement.id = 'erreurmsgreclamations' + i;
-            errorElement.style.color = "red";
-            errorElement.style.backgroundColor = "white";
 
-
+            detailsDesReclamationsDiv.appendChild(p);
+            detailsDesReclamationsDiv.appendChild(document.createElement('br'));
             detailsDesReclamationsDiv.appendChild(label);
             detailsDesReclamationsDiv.appendChild(input);
             detailsDesReclamationsDiv.appendChild(document.createElement('br'));
@@ -121,21 +120,21 @@ function handleNombreReclamationsChange() {
         }
     }
 
-
-
 }
 
 function handleMontantChange(event) {
     var montant = event.target.value;
-    var errorElementId = 'erreurmsgreclamations' + event.target.id.substring(event.target.id.length - 1);
+    var errorElementId = 'erreurmsgmontant' + event.target.id.replace('montantReclamation', '');
     var errorElement = document.getElementById(errorElementId);
-
+    
     if (montant > 35000) {
-        errorElement.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client (PLUS DE 35 000$ DE RÉCLAMATION)";
+        errorElement.innerHTML = " La réclammation est plus de 35 000$ ce qui n'est pas accepté)";
     } else {
         errorElement.innerHTML = "";
     }
 }
+
+
 
 
 
@@ -145,8 +144,7 @@ function checkAgeAndGender() {
     var gender = document.getElementById('genre').value;
     var messageElement = document.getElementById('erreurmsgagegenre');
 
-    messageElement.style.color = "red";
-    messageElement.style.backgroundColor = "white";
+
 
     // a separer les validations ...
     if (gender === "femme" && age == 16) {
@@ -169,8 +167,6 @@ function checkCarValue() {
     var carValue = document.getElementById('valeurv').value;
     var errorElement = document.getElementById('erreurmsgvaleur');
 
-    errorElement.style.color = "red";
-    errorElement.style.backgroundColor = "white";
 
     if (carValue === "" || carValue == null) {
         errorElement.innerHTML = "S'il vous plaît, entrez une valeur pour la voiture. Le champ ne peut pas être vide.";
@@ -190,8 +186,6 @@ function checkCarAnnee() {
     var anneeCar = document.getElementById('anneev').value;
     var errorElement = document.getElementById('erreurmsgannee');
 
-    errorElement.style.color = "red";
-    errorElement.style.backgroundColor = "white";
 
     var currentYear = new Date().getFullYear(); // obtenir l'année courante
 
