@@ -35,6 +35,8 @@ window.onload = function() {
     document.getElementById('oui').addEventListener('change', handleReclamationChange);
     document.getElementById('non').addEventListener('change', handleReclamationChange);
     document.getElementById('nombreReclamations').addEventListener('input', handleNombreReclamationsChange);
+    document.getElementById('btnsoum').onmousedown = calculerMontant;
+
 }
 
 
@@ -223,3 +225,40 @@ function checkCarAnnee() {
         document.getElementById('btnsoum').disabled = false;  
     }
 }
+function calculerMontant(event) {
+    var assuranceAnnuelle;
+    var montantTemporaire;
+    var lage = document.getElementById('age').value;
+    var legenre = document.getElementById('genre').value;
+    var lavaleurcar = document.getElementById('valeurv').value;
+    var afficherMontant = document.getElementById('affichermontant');
+    var montant = event.target.value;
+    var nbrReclamations = document.getElementById('nombreReclamations').value;
+    if ((legenre === "homme" || legenre === "non-binaire") && (lage< 25)) {
+        var montantBase= 0.05*lavaleurcar;
+    
+    }
+    if (lage >= 75) {
+        montantBase= 0.04*lavaleurcar;
+    }
+    else{
+        montantBase= 0.02*lavaleurcar;
+    } 
+    montantTemporaire= nbrReclamations*350;
+    assuranceAnnuelle= montantBase+  montantTemporaire;
+    if(montant>25000){
+        assuranceAnnuelle=assuranceAnnuelle+500;
+    }
+   
+    var montantMensuel=assuranceAnnuelle/12;
+    afficherMontant.style.color= "red";
+    afficherMontant.style.backgroundcolor= "white";
+    afficherMontant.innerHTML="Le montant annuel est "+assuranceAnnuelle+"et le montant mensuel est "+montantMensuel;
+
+
+
+    
+}
+
+
+
