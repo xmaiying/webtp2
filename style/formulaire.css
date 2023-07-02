@@ -7,13 +7,39 @@
    
 }
 
+
+
+  nav {
+    text-align: center;
+    min-height: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 50px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 33px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    padding: 16px;
+
+}
+
 h1 {
+
     margin-bottom: 33px;
-    background-color: #ffffff;
     font-size: 23px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
   }
 
 .forme {
@@ -38,7 +64,6 @@ h1 {
 
 /**couleur du formulaire blanc **/
 #formeassurance {
-    margin-top: 100px;
     /* A MODIFIER PLUS TARD */
     min-height: 850px; 
 

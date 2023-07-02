@@ -254,11 +254,3 @@ function calculerMontant(event) {
         afficherMontant.innerHTML = "Désolé, nous n'avons aucun produit à offrir pour ce profil de client.";
     }
 }
-
-
-
-
-
-
-
-
