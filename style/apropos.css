@@ -44,10 +44,13 @@ h1 {
   #introduction h2,p{
     text-align: center;
     padding: 10px;
-    padding-bottom: 33px;
     margin-right: 300px;
     margin-left: 300px;
    
+  }
+
+  #introduction h2{
+    padding-top: 70px;
   }
 
 
